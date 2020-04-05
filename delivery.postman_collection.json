@@ -1,0 +1,1105 @@
+{
+	"info": {
+		"_postman_id": "28d41571-e852-4d1e-ba8f-de41e241ad4d",
+		"name": "delivery",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"noreply@example.com\",\n    \"password\": \"qwerty\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/client/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"client",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vcmVwbHlAZXhhbXBsZS5jb20iLCJpc0FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNTg2MDk1NDU5LCJleHAiOjE1ODYwOTkwNTl9.2eSpEZMyJKkgHyeUk86gUvQ2JJ83Fw6dOThfjMsYiwo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"yak4995@gmail.com\",\n    \"password\": \"qwerty\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/client/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"client",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-clients",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjEwODg2MywiZXhwIjoxNTg2MTEyNDYzfQ.Ci8_n3Ip-4kFHQEr5mRjg1v4guuy_gsvJ--d6r1CHsE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/client/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"client",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-client-by-id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vcmVwbHlAZXhhbXBsZS5jb20iLCJpc0FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNTg2MTA0NDQ3LCJleHAiOjE1ODYxMDgwNDd9.HuUK2XQo6LqtwcxT9LRfd3C75N_N1MbFWkq6bvZqPnk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/client/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"client",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-client",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vcmVwbHlAZXhhbXBsZS5jb20iLCJpc0FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNTg2MTA0NDQ3LCJleHAiOjE1ODYxMDgwNDd9.HuUK2XQo6LqtwcxT9LRfd3C75N_N1MbFWkq6bvZqPnk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"noreply@example.com\",\n    \"isActive\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/client/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"client",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-client",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im5vcmVwbHlAZXhhbXBsZS5jb20iLCJpc0FjdGl2ZSI6dHJ1ZSwiaWF0IjoxNTg2MTA0NDQ3LCJleHAiOjE1ODYxMDgwNDd9.HuUK2XQo6LqtwcxT9LRfd3C75N_N1MbFWkq6bvZqPnk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/client/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"client",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-location",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjEwODg2MywiZXhwIjoxNTg2MTEyNDYzfQ.Ci8_n3Ip-4kFHQEr5mRjg1v4guuy_gsvJ--d6r1CHsE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"clientId\": 1,\n    \"district\": \"Шевченковский\",\n    \"address\": \"Олеся Гончара\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/client/location",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"client",
+						"location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-locations-for-client",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjEwODg2MywiZXhwIjoxNTg2MTEyNDYzfQ.Ci8_n3Ip-4kFHQEr5mRjg1v4guuy_gsvJ--d6r1CHsE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/client/location/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"client",
+						"location",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-location",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjEwODg2MywiZXhwIjoxNTg2MTEyNDYzfQ.Ci8_n3Ip-4kFHQEr5mRjg1v4guuy_gsvJ--d6r1CHsE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/client/location/1/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"client",
+						"location",
+						"1",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-couriers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjExMzAwOCwiZXhwIjoxNTg2MTE2NjA4fQ.euUf2jjXpJe_bKp9efd5OO2KmoYisWKv28TrV5R7I4U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/courier",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"courier"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-courier",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjExMzAwOCwiZXhwIjoxNTg2MTE2NjA4fQ.euUf2jjXpJe_bKp9efd5OO2KmoYisWKv28TrV5R7I4U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/courier/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"courier",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-courier",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjExMzAwOCwiZXhwIjoxNTg2MTE2NjA4fQ.euUf2jjXpJe_bKp9efd5OO2KmoYisWKv28TrV5R7I4U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/courier/JohnDoe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"courier",
+						"JohnDoe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-courier",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjExMzAwOCwiZXhwIjoxNTg2MTE2NjA4fQ.euUf2jjXpJe_bKp9efd5OO2KmoYisWKv28TrV5R7I4U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/courier/2/John%20Doe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"courier",
+						"2",
+						"John%20Doe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-courier",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjExMzAwOCwiZXhwIjoxNTg2MTE2NjA4fQ.euUf2jjXpJe_bKp9efd5OO2KmoYisWKv28TrV5R7I4U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/courier/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"courier",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "courier/groupedOrderDestinations",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjExMzAwOCwiZXhwIjoxNTg2MTE2NjA4fQ.euUf2jjXpJe_bKp9efd5OO2KmoYisWKv28TrV5R7I4U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/courier/groupedOrderDestinations/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"courier",
+						"groupedOrderDestinations",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "courier/ordersCount",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjExMzAwOCwiZXhwIjoxNTg2MTE2NjA4fQ.euUf2jjXpJe_bKp9efd5OO2KmoYisWKv28TrV5R7I4U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/courier/ordersCount/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"courier",
+						"ordersCount",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "courier/orderExecutionAverageTime",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjExMzAwOCwiZXhwIjoxNTg2MTE2NjA4fQ.euUf2jjXpJe_bKp9efd5OO2KmoYisWKv28TrV5R7I4U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/courier/orderExecutionAverageTime/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"courier",
+						"orderExecutionAverageTime",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "courier/ordersSum",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjEyMjUyNSwiZXhwIjoxNTg2MTI2MTI1fQ.QIKmevRnxuTabcVEO6IQRaz4VE3Yj5hUMSshwkUv0nI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/courier/ordersSum/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"courier",
+						"ordersSum",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-restaurants",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjExMzAwOCwiZXhwIjoxNTg2MTE2NjA4fQ.euUf2jjXpJe_bKp9efd5OO2KmoYisWKv28TrV5R7I4U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/restaurant",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"restaurant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-restaurant-by-id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjExMzAwOCwiZXhwIjoxNTg2MTE2NjA4fQ.euUf2jjXpJe_bKp9efd5OO2KmoYisWKv28TrV5R7I4U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/restaurant/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"restaurant",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-restaurant",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjExODE3NCwiZXhwIjoxNTg2MTIxNzc0fQ.OAEnTLlgd9F9ornBWHZM6jbYQfnzlAFjt3t9dEDGqVk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Мафия\",\n\t\"description\": \"Пицца и суши\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/restaurant",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"restaurant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-restaurant",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjExODE3NCwiZXhwIjoxNTg2MTIxNzc0fQ.OAEnTLlgd9F9ornBWHZM6jbYQfnzlAFjt3t9dEDGqVk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"updatedName\": \"Mafia\",\n\t\"updatedDescription\": \"Пицца и суши\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/restaurant/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"restaurant",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-restaurant",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjExODE3NCwiZXhwIjoxNTg2MTIxNzc0fQ.OAEnTLlgd9F9ornBWHZM6jbYQfnzlAFjt3t9dEDGqVk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/restaurant/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"restaurant",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjExODE3NCwiZXhwIjoxNTg2MTIxNzc0fQ.OAEnTLlgd9F9ornBWHZM6jbYQfnzlAFjt3t9dEDGqVk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Пицца S\",\n\t\"description\": \"Маленькая пицца\",\n\t\"price\": 10000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/restaurant/product/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"restaurant",
+						"product",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-products",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjExODE3NCwiZXhwIjoxNTg2MTIxNzc0fQ.OAEnTLlgd9F9ornBWHZM6jbYQfnzlAFjt3t9dEDGqVk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/restaurant/product/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"restaurant",
+						"product",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjExODE3NCwiZXhwIjoxNTg2MTIxNzc0fQ.OAEnTLlgd9F9ornBWHZM6jbYQfnzlAFjt3t9dEDGqVk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/restaurant/product/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"restaurant",
+						"product",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all-orders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjEyMjUyNSwiZXhwIjoxNTg2MTI2MTI1fQ.QIKmevRnxuTabcVEO6IQRaz4VE3Yj5hUMSshwkUv0nI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order/by-client",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjEyMjUyNSwiZXhwIjoxNTg2MTI2MTI1fQ.QIKmevRnxuTabcVEO6IQRaz4VE3Yj5hUMSshwkUv0nI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/order/by-client/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"order",
+						"by-client",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order-by-id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjEyMjUyNSwiZXhwIjoxNTg2MTI2MTI1fQ.QIKmevRnxuTabcVEO6IQRaz4VE3Yj5hUMSshwkUv0nI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/order/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"order",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order/current for user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjEyMjUyNSwiZXhwIjoxNTg2MTI2MTI1fQ.QIKmevRnxuTabcVEO6IQRaz4VE3Yj5hUMSshwkUv0nI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/order/current/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"order",
+						"current",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjEyMjUyNSwiZXhwIjoxNTg2MTI2MTI1fQ.QIKmevRnxuTabcVEO6IQRaz4VE3Yj5hUMSshwkUv0nI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"clientId\": 1,\r\n    \"restaurantId\": 1,\r\n    \"locationId\": 1,\r\n    \"orderItemDtos\": [\r\n    \t{\r\n    \t\t\"productId\": 1,\r\n    \t\t\"count\": 1\r\n    \t},\r\n    \t{\r\n    \t\t\"productId\": 2,\r\n    \t\t\"count\": 2\r\n    \t}\r\n    ]\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order/set-status",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjEyMjUyNSwiZXhwIjoxNTg2MTI2MTI1fQ.QIKmevRnxuTabcVEO6IQRaz4VE3Yj5hUMSshwkUv0nI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/order/set-status/11/cooking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"order",
+						"set-status",
+						"11",
+						"cooking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order/set-courier",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjEyMjUyNSwiZXhwIjoxNTg2MTI2MTI1fQ.QIKmevRnxuTabcVEO6IQRaz4VE3Yj5hUMSshwkUv0nI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/order/set-courier/11/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"order",
+						"set-courier",
+						"11",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order/set-finished/",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJub3JlcGx5QGV4YW1wbGUuY29tIiwiaXNBY3RpdmUiOnRydWUsImlhdCI6MTU4NjEyMjUyNSwiZXhwIjoxNTg2MTI2MTI1fQ.QIKmevRnxuTabcVEO6IQRaz4VE3Yj5hUMSshwkUv0nI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/order/set-finished/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"order",
+						"set-finished",
+						"11"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

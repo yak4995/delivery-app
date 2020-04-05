@@ -1,0 +1,7 @@
+{
+    "dbConnectionUrl": "postgres://postgres@localhost:5432/delivery",
+    "port": 3000,
+    "jwtSecret": "smth_confidential",
+    "saltRounds": 10,
+    "jwtExpiresIn": 3600
+}
