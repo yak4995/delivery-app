@@ -90,7 +90,7 @@ class OrderService {
     return this.orderRepo.update({
       status: 'finished',
       deliveryAt,
-      deliveryDuration: Math.floor((deliveryAt - new Date(order.createdAt)) / 60000),
+      delivery_duration: Math.floor((deliveryAt - new Date(order.createdAt)) / 60000),
     }, order.id);
   }
 }

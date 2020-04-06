@@ -1,14 +1,9 @@
-const Sequelize = require('sequelize');
 const Order = require('../../../models').Order;
 const Client = require('../../../models').Client;
 const Location = require('../../../models').Location;
 const Restaurant = require('../../../models').Restaurant;
 const Courier = require('../../../models').Courier;
 const EntityRepository = require('../../core/repositories/entityRepository');
-
-const configService = require('../services/config.service');
-const sequelize = new Sequelize(configService.get('dbConnectionUrl'));
-sequelize.authenticate();
 
 Order.belongsTo(Client, {
   foreignKey: 'client_id',
@@ -31,6 +26,25 @@ Order.belongsTo(Courier, {
   as: 'courier'
 });
 
+const eagerConditions = [
+  {
+    model: Client,
+    as: 'client'
+  },
+  {
+    model: Location,
+    as: 'destination'
+  },
+  {
+    model: Restaurant,
+    as: 'restaurant'
+  },
+  {
+    model: Courier,
+    as: 'courier'
+  },
+];
+
 class OrderRepository extends EntityRepository {
   constructor() {
     super();
@@ -38,28 +52,11 @@ class OrderRepository extends EntityRepository {
 
   insert (entity) {
     const {id, client, restaurant, destination, ...data} = entity;
-    return sequelize.query(`
-      INSERT INTO "orders" (
-        "client_id",
-        "restaurant_id",
-        "destination_id",
-        "createdAt"
-      ) VALUES (
-        ?,
-        ?,
-        ?,
-        ?
-      ) RETURNING id`,
-    {
-      replacements: [
-        client.id,
-        restaurant.id,
-        destination.id,
-        new Date(),
-      ],
-      type: Sequelize.QueryTypes.INSERT
-    }
-    ).then((rawQueryResult) => this.findById(rawQueryResult[0][0].id));
+    return Order.create(Object.assign(data, {
+      client_id: client.id,
+      restaurant_id: restaurant.id,
+      destination_id: destination.id,
+    }));
   }
 
   findAll (
@@ -71,48 +68,14 @@ class OrderRepository extends EntityRepository {
       offset: ((page - 1) * perPage),
       limit: perPage,
       order: Object.entries(orderBy),
-      include: [
-        {
-          model: Client,
-          as: 'client'
-        },
-        {
-          model: Location,
-          as: 'destination'
-        },
-        {
-          model: Restaurant,
-          as: 'restaurant'
-        },
-        {
-          model: Courier,
-          as: 'courier'
-        },
-      ]
+      include: eagerConditions,
     });
   }
 
   findById (id) {
     return Order.findOne({
       where: { id },
-      include: [
-        {
-          model: Client,
-          as: 'client'
-        },
-        {
-          model: Location,
-          as: 'destination'
-        },
-        {
-          model: Restaurant,
-          as: 'restaurant'
-        },
-        {
-          model: Courier,
-          as: 'courier'
-        },
-      ]
+      include: eagerConditions,
     });
   }
 
@@ -121,32 +84,13 @@ class OrderRepository extends EntityRepository {
       where: {
         client_id: searchCriteria.client,
       },
-      include: [
-        {
-          model: Client,
-          as: 'client'
-        },
-        {
-          model: Location,
-          as: 'destination'
-        },
-        {
-          model: Restaurant,
-          as: 'restaurant'
-        },
-        {
-          model: Courier,
-          as: 'courier'
-        },
-      ]
+      include: eagerConditions,
     });
   }
 
   async update (updateData, id) {
     const order = await Order.findByPk(id);
     if (updateData.deliveryAt) {
-      updateData.delivery_duration = updateData.deliveryDuration;
-      delete updateData.deliveryDuration;
       return order.update(updateData);
     }
     return order.update({courier_id: updateData.courier});
